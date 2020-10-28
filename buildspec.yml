@@ -1,0 +1,47 @@
+version: 0.2
+
+batch:
+  build-graph:
+  - identifier: raspberrypi4
+    env:
+      variables:
+        PRODUCT: raspberrypi4
+  - identifier: raspberrypi3
+    env:
+      variables:
+        PRODUCT: raspberrypi3
+  - identifier: rockpi4
+    env:
+      variables:
+        PRODUCT: rockpi4
+  - identifier: tinkerboard
+    env:
+      variables:
+        PRODUCT: tinkerboard
+
+env:
+  shell: bash
+  variables:
+    SITE: aws
+    LANG: en_US.UTF-8
+    WORKON_HOME: /home/yoctouser/.venvs
+
+run-as: yoctouser
+
+phases:
+  install:
+    run-as: root
+    commands:
+    - apt update -y && apt install -y python3-pip
+    - pip3 install pipenv
+
+  build:
+    commands:
+    - . ./init-build-env --product=$PRODUCT --site=$SITE --build=build
+    - bitbake all-targets
+
+artifacts:
+  base-directory: build/deploy
+  files:
+  - "**/images/**/*"
+  name: $PRODUCT

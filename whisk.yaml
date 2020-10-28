@@ -1,0 +1,96 @@
+version: 1
+
+defaults:
+  site: local
+  mode: development
+
+
+versions:
+  gatesgarth:
+    description: Yocto 3.2
+    oeinit: "%{WHISK_PROJECT_ROOT}/poky/oe-init-build-env"
+    layers:
+    - name: core
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/poky/meta"
+      - "%{WHISK_PROJECT_ROOT}/poky/meta-poky"
+    - name: raspberrypi
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/meta-raspberrypi"
+    - name: arm
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/meta-arm/meta-arm"
+      - "%{WHISK_PROJECT_ROOT}/meta-arm/meta-arm-toolchain"
+    - name: rockchip
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/meta-rockchip"
+
+modes:
+  development: {}
+
+sites:
+  local:
+    description: A local machine
+  aws:
+    description: AWS CodeBuilder
+    conf: |
+      #INHERIT += "rm_work"
+      SSTATE_DIR = "/mnt/yocto-cache/sstate"
+      DL_DIR = "/mnt/yocto-cache/downloads"
+
+      # For now. Need to setup a hash equivalence server in AWS
+      BB_SIGNATURE_HANDLER = "OEBasicHash"
+
+core:
+  layers:
+  - core
+  conf: |
+    DISTRO = "poky"
+
+products:
+  raspberrypi4:
+    description: Raspberry Pi 4 (64-bit)
+    default_version: gatesgarth
+    layers:
+    - core
+    - raspberrypi
+    targets:
+    - "mc:product-raspberrypi4:core-image-weston"
+    conf: |
+      MACHINE = "raspberrypi4-64"
+
+  raspberrypi3:
+    description: Raspberry Pi 3 (64-bit)
+    default_version: gatesgarth
+    layers:
+    - core
+    - raspberrypi
+    targets:
+    - "mc:product-raspberrypi3:core-image-weston"
+    conf: |
+      MACHINE = "raspberrypi3-64"
+
+  tinkerboard:
+    description: ASuS TinkerBoard
+    default_version: gatesgarth
+    layers:
+    - core
+    - arm
+    - rockchip
+    targets:
+    - "mc:product-tinkerboard:core-image-weston"
+    conf: |
+      MACHINE = "tinker-board"
+
+  rockpi4:
+    description: Rock Pi 4
+    default_version: gatesgarth
+    layers:
+    - core
+    - arm
+    - rockchip
+    targets:
+    - "mc:product-rockpi4:core-image-weston"
+    conf: |
+      MACHINE = "rock-pi-4"
+

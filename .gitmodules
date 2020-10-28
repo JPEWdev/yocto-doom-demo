@@ -1,0 +1,20 @@
+[submodule "poky"]
+	path = poky
+	url = git://git.yoctoproject.org/poky
+	branch = gatesgarth
+[submodule "whisk"]
+	path = whisk
+	url = https://github.com/garmin/whisk.git
+	branch = master
+[submodule "meta-raspberrypi"]
+	path = meta-raspberrypi
+	url = git://git.yoctoproject.org/meta-raspberrypi
+	branch = master
+[submodule "meta-rockchip"]
+	path = meta-rockchip
+	url = git://git.yoctoproject.org/meta-rockchip
+	branch = gatesgarth
+[submodule "meta-arm"]
+	path = meta-arm
+	url = git://git.yoctoproject.org/meta-arm
+	branch = master
