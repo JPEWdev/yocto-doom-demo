@@ -1,6 +1,3 @@
-# Copyright (C) 2020 Joshua Watt <JPEWhacker@gmail.com>
-# Released under the MIT license (see COPYING.MIT for the terms)
-
 SUMMARY = "GZDoom Music Library"
 HOMEPAGE = "https://github.com/coelckers/ZMusic"
 SECTION = "games"
@@ -14,8 +11,18 @@ SRC_URI = "git://github.com/coelckers/ZMusic.git;protocol=http;branch=${BRANCH}"
 SRCREV = "bff02053bea30bd789e45f60b90db3ffc69c8cc8"
 BRANCH = "master"
 
-inherit cmake
+STAGING_NATIVE_BUILDDIR = "${TMPDIR}/work-shared/native/${BPN}"
+
+B_class-native = "${STAGING_NATIVE_BUILDDIR}"
 
 S = "${WORKDIR}/git"
+
+inherit cmake
+
+EXTRA_OECMAKE_append_class-target = " -DIMPORT_EXECUTABLES=${STAGING_NATIVE_BUILDDIR}/ImportExecutables.cmake"
+
+CONFIGURE_DEPS = "${BPN}-native:do_compile"
+CONFIGURE_DEPS_class-native = ""
+do_configure[depends] = "${CONFIGURE_DEPS}"
 
 BBCLASSEXTEND += "native"

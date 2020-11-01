@@ -1,6 +1,3 @@
-# Copyright (C) 2020 Joshua Watt <JPEWhacker@gmail.com>
-# Released under the MIT license (see COPYING.MIT for the terms)
-
 SUMMARY = "Open Source Doom Engine"
 HOMEPAGE = "http://zdoom.org"
 LICENSE = "GPLv3"

@@ -13,7 +13,7 @@ CONFIGURE_DEPS_class-native = ""
 do_configure[depends] = "${CONFIGURE_DEPS}"
 
 do_install_append() {
-    ln -s ${bindir}/${BPN} ${D}${bindir}/zdoom
+    ln -s ${BPN} ${D}${bindir}/zdoom
 }
 
 BBCLASSEXTEND += "native"

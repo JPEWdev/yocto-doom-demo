@@ -4,6 +4,11 @@ defaults:
   site: local
   mode: development
 
+hooks:
+  pre_init: |
+      BB_ENV_EXTRAWHITE="${BB_ENV_EXTRAWHITE} \
+          DOOM_GAMES \
+          "
 
 versions:
   gatesgarth:
@@ -24,6 +29,9 @@ versions:
     - name: rockchip
       paths:
       - "%{WHISK_PROJECT_ROOT}/meta-rockchip"
+    - name: doom
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/meta-doom"
 
 modes:
   development: {}
@@ -46,6 +54,10 @@ core:
   - core
   conf: |
     DISTRO = "poky"
+    INIT_MANAGER = "systemd"
+    DISTRO_FEATURES_append = " pam wayland"
+    DOOM_GAMES ??= "chexquest3 harmony delaweare adventuresofsquare"
+    CORE_IMAGE_EXTRA_INSTALL = "${DOOM_GAMES}"
 
 products:
   raspberrypi4:
@@ -54,10 +66,12 @@ products:
     layers:
     - core
     - raspberrypi
+    - doom
     targets:
-    - "mc:product-raspberrypi4:core-image-weston"
+    - "mc:product-raspberrypi4:core-image-doom"
     conf: |
       MACHINE = "raspberrypi4-64"
+      PREFERRED_RPROVIDER_zdoom = "lzdoom"
 
   raspberrypi3:
     description: Raspberry Pi 3 (64-bit)
@@ -65,10 +79,12 @@ products:
     layers:
     - core
     - raspberrypi
+    - doom
     targets:
-    - "mc:product-raspberrypi3:core-image-weston"
+    - "mc:product-raspberrypi3:core-image-doom"
     conf: |
       MACHINE = "raspberrypi3-64"
+      PREFERRED_RPROVIDER_zdoom = "lzdoom"
 
   tinkerboard:
     description: ASuS TinkerBoard
@@ -77,10 +93,12 @@ products:
     - core
     - arm
     - rockchip
+    - doom
     targets:
-    - "mc:product-tinkerboard:core-image-weston"
+    - "mc:product-tinkerboard:core-image-doom"
     conf: |
       MACHINE = "tinker-board"
+      PREFERRED_RPROVIDER_zdoom = "lzdoom"
 
   rockpi4:
     description: Rock Pi 4
@@ -89,8 +107,10 @@ products:
     - core
     - arm
     - rockchip
+    - doom
     targets:
-    - "mc:product-rockpi4:core-image-weston"
+    - "mc:product-rockpi4:core-image-doom"
     conf: |
       MACHINE = "rock-pi-4"
+      PREFERRED_RPROVIDER_zdoom = "lzdoom"
 
