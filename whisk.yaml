@@ -39,6 +39,7 @@ modes:
 sites:
   local:
     description: A local machine
+
   aws:
     description: AWS CodeBuilder
     conf: |
@@ -48,6 +49,11 @@ sites:
 
       # For now. Need to setup a hash equivalence server in AWS
       BB_SIGNATURE_HANDLER = "OEBasicHash"
+
+  tekton:
+    description: Building in a Tekton pipeline
+    conf: |
+      INHERIT += "rm_work"
 
 core:
   layers:
