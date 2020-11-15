@@ -7,6 +7,7 @@ SECTION = "games"
 DEPENDS = "\
     libsdl2 \
     zmusic \
+    bzip2-replacement-native \
     "
 
 SRC_URI = "https://github.com/coelckers/gzdoom/archive/g${PV}.zip"

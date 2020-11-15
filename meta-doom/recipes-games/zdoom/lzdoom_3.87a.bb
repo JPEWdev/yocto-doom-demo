@@ -6,6 +6,7 @@ SECTION = "games"
 
 DEPENDS = "\
     libsdl2 \
+    bzip2-replacement-native \
     "
 
 PROVIDES = "virtual/zdoom"
