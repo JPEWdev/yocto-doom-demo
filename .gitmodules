@@ -9,7 +9,7 @@
 [submodule "meta-raspberrypi"]
 	path = meta-raspberrypi
 	url = git://git.yoctoproject.org/meta-raspberrypi
-	branch = master
+	branch = gatesgarth
 [submodule "meta-rockchip"]
 	path = meta-rockchip
 	url = git://git.yoctoproject.org/meta-rockchip
@@ -17,4 +17,4 @@
 [submodule "meta-arm"]
 	path = meta-arm
 	url = git://git.yoctoproject.org/meta-arm
-	branch = master
+	branch = gatesgarth
