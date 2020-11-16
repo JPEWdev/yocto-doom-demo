@@ -25,6 +25,9 @@ do_install_append() {
 
 BBCLASSEXTEND += "native"
 
+# Don't clean the native recipe so it can share with the target recipe
+RM_WORK_EXCLUDE += "${BPN}-native"
+
 FILES_${PN} += "/usr/share/games"
 RPROVIDES_${PN}_class-target = "zdoom"
 
