@@ -13,22 +13,43 @@ hooks:
 versions:
   gatesgarth:
     description: Yocto 3.2
-    oeinit: "%{WHISK_PROJECT_ROOT}/poky/oe-init-build-env"
+    oeinit: "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/oe-init-build-env"
     layers:
     - name: core
       paths:
-      - "%{WHISK_PROJECT_ROOT}/poky/meta"
-      - "%{WHISK_PROJECT_ROOT}/poky/meta-poky"
+      - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta"
+      - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta-poky"
     - name: raspberrypi
       paths:
-      - "%{WHISK_PROJECT_ROOT}/meta-raspberrypi"
+      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-raspberrypi"
     - name: arm
       paths:
-      - "%{WHISK_PROJECT_ROOT}/meta-arm/meta-arm"
-      - "%{WHISK_PROJECT_ROOT}/meta-arm/meta-arm-toolchain"
+      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm"
+      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm-toolchain"
     - name: rockchip
       paths:
-      - "%{WHISK_PROJECT_ROOT}/meta-rockchip"
+      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-rockchip"
+    - name: doom
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/meta-doom"
+  hardknott:
+    description: Yocto 3.3
+    oeinit: "%{WHISK_PROJECT_ROOT}/hardknott/poky/oe-init-build-env"
+    layers:
+    - name: core
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta"
+      - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta-poky"
+    - name: raspberrypi
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-raspberrypi"
+    - name: arm
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm"
+      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm-toolchain"
+    - name: rockchip
+      paths:
+      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-rockchip"
     - name: doom
       paths:
       - "%{WHISK_PROJECT_ROOT}/meta-doom"

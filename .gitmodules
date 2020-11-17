@@ -1,5 +1,5 @@
 [submodule "poky"]
-	path = poky
+	path = gatesgarth/poky
 	url = git://git.yoctoproject.org/poky
 	branch = gatesgarth
 [submodule "whisk"]
@@ -7,14 +7,30 @@
 	url = https://github.com/garmin/whisk.git
 	branch = master
 [submodule "meta-raspberrypi"]
-	path = meta-raspberrypi
+	path = gatesgarth/meta-raspberrypi
 	url = git://git.yoctoproject.org/meta-raspberrypi
 	branch = gatesgarth
 [submodule "meta-rockchip"]
-	path = meta-rockchip
+	path = gatesgarth/meta-rockchip
 	url = git://git.yoctoproject.org/meta-rockchip
 	branch = gatesgarth
 [submodule "meta-arm"]
-	path = meta-arm
+	path = gatesgarth/meta-arm
 	url = git://git.yoctoproject.org/meta-arm
 	branch = gatesgarth
+[submodule "hardknott/meta-arm"]
+	path = hardknott/meta-arm
+	url = git://git.yoctoproject.org/meta-arm
+	branch = master
+[submodule "hardknott/meta-raspberrypi"]
+	path = hardknott/meta-raspberrypi
+	url = git://git.yoctoproject.org/meta-raspberrypi
+	branch = master
+[submodule "hardknott/meta-rockchip"]
+	path = hardknott/meta-rockchip
+	url = git://git.yoctoproject.org/meta-rockchip
+	branch = master
+[submodule "hardknott/poky"]
+	path = hardknott/poky
+	url = git://git.yoctoproject.org/poky
+	branch = master
