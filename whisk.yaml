@@ -74,7 +74,8 @@ sites:
   tekton:
     description: Building in a Tekton pipeline
     conf: |
-      INHERIT += "rm_work"
+      # For now. Need to setup a hash equivalence server in Kubernetes
+      BB_SIGNATURE_HANDLER = "OEBasicHash"
 
 core:
   layers:
