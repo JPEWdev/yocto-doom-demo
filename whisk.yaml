@@ -142,3 +142,16 @@ products:
       MACHINE = "rock-pi-4"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
 
+  qemux86-64:
+    description: qemu x86_64
+    default_version: gatesgarth
+    layers:
+    - core
+    - doom
+    targets:
+    - "mc:product-qemux86-64:core-image-doom"
+    conf: |
+      MACHINE = "qemux86-64"
+      PACKAGECONFIG_append_pn-qemu-system-native = " gtk+"
+
+
