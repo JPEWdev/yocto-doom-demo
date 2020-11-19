@@ -1,3 +1,4 @@
+---
 version: 1
 
 defaults:
@@ -15,44 +16,44 @@ versions:
     description: Yocto 3.2
     oeinit: "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/oe-init-build-env"
     layers:
-    - name: core
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta"
-      - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta-poky"
-    - name: raspberrypi
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-raspberrypi"
-    - name: arm
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm"
-      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm-toolchain"
-    - name: rockchip
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-rockchip"
-    - name: doom
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/meta-doom"
+      - name: core
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta"
+          - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta-poky"
+      - name: raspberrypi
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-raspberrypi"
+      - name: arm
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm"
+          - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm-toolchain"
+      - name: rockchip
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-rockchip"
+      - name: doom
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/meta-doom"
   hardknott:
     description: Yocto 3.3
     oeinit: "%{WHISK_PROJECT_ROOT}/hardknott/poky/oe-init-build-env"
     layers:
-    - name: core
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta"
-      - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta-poky"
-    - name: raspberrypi
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-raspberrypi"
-    - name: arm
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm"
-      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm-toolchain"
-    - name: rockchip
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/hardknott/meta-rockchip"
-    - name: doom
-      paths:
-      - "%{WHISK_PROJECT_ROOT}/meta-doom"
+      - name: core
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta"
+          - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta-poky"
+      - name: raspberrypi
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/hardknott/meta-raspberrypi"
+      - name: arm
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm"
+          - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm-toolchain"
+      - name: rockchip
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/hardknott/meta-rockchip"
+      - name: doom
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/meta-doom"
 
 modes:
   development: {}
@@ -79,7 +80,7 @@ sites:
 
 core:
   layers:
-  - core
+    - core
   conf: |
     DISTRO = "poky"
     INIT_MANAGER = "systemd"
@@ -92,11 +93,11 @@ products:
     description: Raspberry Pi 4 (64-bit)
     default_version: gatesgarth
     layers:
-    - core
-    - raspberrypi
-    - doom
+      - core
+      - raspberrypi
+      - doom
     targets:
-    - "mc:product-raspberrypi4:core-image-doom"
+      - "mc:product-raspberrypi4:core-image-doom"
     conf: |
       MACHINE = "raspberrypi4-64"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
@@ -105,11 +106,11 @@ products:
     description: Raspberry Pi 3 (64-bit)
     default_version: gatesgarth
     layers:
-    - core
-    - raspberrypi
-    - doom
+      - core
+      - raspberrypi
+      - doom
     targets:
-    - "mc:product-raspberrypi3:core-image-doom"
+      - "mc:product-raspberrypi3:core-image-doom"
     conf: |
       MACHINE = "raspberrypi3-64"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
@@ -118,12 +119,12 @@ products:
     description: ASuS TinkerBoard
     default_version: gatesgarth
     layers:
-    - core
-    - arm
-    - rockchip
-    - doom
+      - core
+      - arm
+      - rockchip
+      - doom
     targets:
-    - "mc:product-tinkerboard:core-image-doom"
+      - "mc:product-tinkerboard:core-image-doom"
     conf: |
       MACHINE = "tinker-board"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
@@ -132,12 +133,12 @@ products:
     description: Rock Pi 4
     default_version: gatesgarth
     layers:
-    - core
-    - arm
-    - rockchip
-    - doom
+      - core
+      - arm
+      - rockchip
+      - doom
     targets:
-    - "mc:product-rockpi4:core-image-doom"
+      - "mc:product-rockpi4:core-image-doom"
     conf: |
       MACHINE = "rock-pi-4"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
@@ -146,12 +147,10 @@ products:
     description: qemu x86_64
     default_version: gatesgarth
     layers:
-    - core
-    - doom
+      - core
+      - doom
     targets:
-    - "mc:product-qemux86-64:core-image-doom"
+      - "mc:product-qemux86-64:core-image-doom"
     conf: |
       MACHINE = "qemux86-64"
       PACKAGECONFIG_append_pn-qemu-system-native = " gtk+"
-
-
