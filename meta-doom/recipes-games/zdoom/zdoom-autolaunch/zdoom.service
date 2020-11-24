@@ -1,14 +1,13 @@
 [Unit]
 Description=ZDoom
 
-#Wants=weston@weston.socket
+Wants=weston.socket
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/zdoom +fullscreen 1
 User=weston
-Environment=XDG_RUNTIME_DIR=/run/user/weston
-Environment=WAYLAND_DISPLAY=wayland-0
+Environment=WAYLAND_DISPLAY=/run/wayland-0
 
 [Install]
 WantedBy=default.target
