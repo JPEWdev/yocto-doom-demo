@@ -87,6 +87,7 @@ core:
     DISTRO_FEATURES_append = " pam wayland"
     DOOM_GAMES ??= "chexquest3 harmony delaweare adventuresofsquare"
     CORE_IMAGE_EXTRA_INSTALL = "${DOOM_GAMES}"
+    IMAGE_FSTYPES += "wic.bz2 wic.bmap"
 
 products:
   raspberrypi4:
@@ -101,6 +102,7 @@ products:
     conf: |
       MACHINE = "raspberrypi4-64"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
+      ENABLE_UART = "1"
 
   raspberrypi3:
     description: Raspberry Pi 3 (64-bit)
@@ -114,6 +116,7 @@ products:
     conf: |
       MACHINE = "raspberrypi3-64"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
+      ENABLE_UART = "1"
 
   tinkerboard:
     description: ASuS TinkerBoard
