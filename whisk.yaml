@@ -57,6 +57,9 @@ versions:
       - name: rockpix
         paths:
           - "${WHISK_PROJECT_ROOT}/meta-rockpix"
+      - name: pine64
+        paths:
+          - "%{WHISK_PROJECT_ROOT}/hardknott/meta-pine64"
       - name: doom
         paths:
           - "%{WHISK_PROJECT_ROOT}/meta-doom"
@@ -175,3 +178,16 @@ products:
       - "mc:product-rockpix:core-image-doom"
     conf: |
       MACHINE = "rock-pi-x"
+
+  pineh64:
+    description: Pine H64
+    default_version: hardknott
+    layers:
+      - core
+      - arm
+      - pine64
+      - doom
+    targets:
+      - "mc:product-pineh64:core-image-doom"
+    conf: |
+      MACHINE = "pine-h64"
