@@ -30,6 +30,9 @@ versions:
       - name: rockchip
         paths:
           - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-rockchip"
+      - name: rockpix
+        paths:
+          - "${WHISK_PROJECT_ROOT}/meta-rockpix"
       - name: doom
         paths:
           - "%{WHISK_PROJECT_ROOT}/meta-doom"
@@ -51,6 +54,9 @@ versions:
       - name: rockchip
         paths:
           - "%{WHISK_PROJECT_ROOT}/hardknott/meta-rockchip"
+      - name: rockpix
+        paths:
+          - "${WHISK_PROJECT_ROOT}/meta-rockpix"
       - name: doom
         paths:
           - "%{WHISK_PROJECT_ROOT}/meta-doom"
@@ -157,3 +163,15 @@ products:
     conf: |
       MACHINE = "qemux86-64"
       PACKAGECONFIG_append_pn-qemu-system-native = " gtk+"
+
+  rockpix:
+    description: Rock Pi X
+    default_version: gatesgarth
+    layers:
+      - core
+      - rockpix
+      - doom
+    targets:
+      - "mc:product-rockpix:core-image-doom"
+    conf: |
+      MACHINE = "rock-pi-x"
