@@ -1,7 +1,7 @@
 import pytest
 import time
 from labgrid.protocol import CommandProtocol
-from labgrid.driver import USBStorageDriver, USBSDWireDriver, USBSDMuxDriver, Mode
+from labgrid.driver import USBStorageDriver, USBSDWireDriver, USBSDMuxDriver, Mode, SSHDriver
 
 
 @pytest.fixture(scope="function")
@@ -16,6 +16,11 @@ def shell_command(target, strategy, capsys):
         strategy.transition("shell")
     return target.get_active_driver(CommandProtocol)
 
+@pytest.fixture(scope="function")
+def ssh_command(target, strategy, capsys):
+    with capsys.disabled():
+        strategy.transition("shell")
+    return target.get_driver(SSHDriver)
 
 @pytest.fixture(scope="session")
 def image(target, strategy):
