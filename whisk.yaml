@@ -92,7 +92,7 @@ core:
     INIT_MANAGER = "systemd"
     DISTRO_FEATURES_append = " pam wayland"
     DOOM_GAMES ??= "chexquest3 harmony delaweare adventuresofsquare"
-    CORE_IMAGE_EXTRA_INSTALL = "${DOOM_GAMES}"
+    CORE_IMAGE_EXTRA_INSTALL = "${DOOM_GAMES} iproute2"
     IMAGE_FSTYPES += "wic.bz2 wic.bmap"
 
 products:
