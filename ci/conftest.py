@@ -56,7 +56,7 @@ def ssh_command(target, strategy, capsys):
     if not found:
         if assign_intf is not None:
             shell.run_check(
-                "ip addr add dev %s scope link %s" % (assign_intf["ifname"], address)
+                "ip addr add dev %s scope link %s/64" % (assign_intf["ifname"], address)
             )
             # Wait for device to configure services
             time.sleep(3)
