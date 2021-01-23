@@ -27,7 +27,7 @@ def shell_command(target, strategy, capsys):
 
 
 @pytest.fixture(scope="function")
-def ssh_command(target, strategy, capsys):
+def ip_address(target, strategy, capsys):
     with capsys.disabled():
         strategy.transition("shell")
     shell = target.get_active_driver(CommandProtocol)
@@ -60,10 +60,13 @@ def ssh_command(target, strategy, capsys):
                 "ip addr add dev %s scope link %s/64" % (assign_intf["ifname"], address)
             )
             # Wait for device to configure services
-            time.sleep(3)
+            time.sleep(5)
         else:
             pytest.fail("No active interface found to assign address %s" % address)
 
+
+@pytest.fixture(scope="function")
+def ssh_command(target, ip_address):
     return target.get_driver(SSHDriver)
 
 
