@@ -81,12 +81,12 @@ def image(target, strategy):
             pass
 
     if mux is None:
-        ptest.skip("No SD Mux found")
+        pytest.skip("No SD Mux found")
 
     try:
         mass_storage = target.get_driver(USBStorageDriver)
     except NoDriverFoundError:
-        ptest.skip("No USB Mass storage device found")
+        pytest.skip("No USB Mass storage device found")
 
     strategy.transition("off")
     mux.set_mode("host")
