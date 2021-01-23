@@ -140,7 +140,7 @@ products:
 
   rockpi4:
     description: Rock Pi 4
-    default_version: gatesgarth
+    default_version: hardknott
     layers:
       - core
       - arm
@@ -149,7 +149,7 @@ products:
     targets:
       - "mc:product-rockpi4:core-image-doom"
     conf: |
-      MACHINE = "rock-pi-4"
+      MACHINE = "rock-pi-4b"
       PREFERRED_RPROVIDER_zdoom = "lzdoom"
 
   qemux86-64:
