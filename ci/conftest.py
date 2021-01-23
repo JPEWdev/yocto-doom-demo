@@ -10,6 +10,7 @@ from labgrid.driver import (
     SSHDriver,
 )
 from labgrid.resource import NetworkService
+from labgrid.exceptions import NoDriverFoundError
 
 
 @pytest.fixture(scope="function")
