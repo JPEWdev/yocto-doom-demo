@@ -1,6 +1,6 @@
 SUMMARY = "Doom On Wayland"
 
-IMAGE_FEATURES += "splash ssh-server-dropbear hwcodecs"
+IMAGE_FEATURES += "splash ssh-server-dropbear hwcodecs ptest-pkgs"
 
 LICENSE = "MIT"
 
