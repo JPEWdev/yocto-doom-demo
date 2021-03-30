@@ -98,6 +98,9 @@ core:
     CORE_IMAGE_EXTRA_INSTALL = "${DOOM_GAMES} iproute2"
     IMAGE_FSTYPES += "wic.bz2 wic.bmap"
 
+    export OMP_NUM_THREADS = "${BB_NUMBER_THREADS}"
+    OMP_NUM_THREADS[vardepsexclude] = "BB_NUMBER_THREADS"
+
 products:
   raspberrypi4:
     description: Raspberry Pi 4 (64-bit)
