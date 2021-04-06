@@ -29,7 +29,7 @@
 [submodule "hardknott/meta-rockchip"]
 	path = hardknott/meta-rockchip
 	url = git://git.yoctoproject.org/meta-rockchip
-	branch = master
+	branch = hardknott
 [submodule "hardknott/poky"]
 	path = hardknott/poky
 	url = git://git.yoctoproject.org/poky
