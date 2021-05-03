@@ -21,7 +21,7 @@
 [submodule "hardknott/meta-arm"]
 	path = hardknott/meta-arm
 	url = git://git.yoctoproject.org/meta-arm
-	branch = master
+	branch = hardknott
 [submodule "hardknott/meta-raspberrypi"]
 	path = hardknott/meta-raspberrypi
 	url = git://git.yoctoproject.org/meta-raspberrypi
@@ -33,7 +33,7 @@
 [submodule "hardknott/poky"]
 	path = hardknott/poky
 	url = git://git.yoctoproject.org/poky
-	branch = master
+	branch = hardknott
 [submodule "hardknott/meta-pine64"]
 	path = hardknott/meta-pine64
 	url = https://github.com/alistair23/meta-pine64.git
