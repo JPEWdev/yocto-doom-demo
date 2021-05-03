@@ -1,7 +1,7 @@
 SUMMARY = "Open Source Doom Engine"
 HOMEPAGE = "http://zdoom.org"
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://README.md;md5=d1ce2cab6944f51f12525731f841a15e"
+LIC_FILES_CHKSUM = "file://README.md;md5=50fd7ab18ad5cf588cb30e795cb7fffa"
 SECTION = "games"
 
 DEPENDS = "\
@@ -12,7 +12,7 @@ DEPENDS = "\
 PROVIDES = "virtual/zdoom"
 
 SRC_URI = "https://github.com/drfrag666/gzdoom/archive/${PV}.zip"
-SRC_URI[sha256sum] = "74d3c2f604b19355250a67d778271eb16255ccccf9a6999f340c9ff737e2da2c"
+SRC_URI[sha256sum] = "52e8150a86076f644790834eafef3d2630ac07a2144a45e4b80b846d23005d1b"
 
 S = "${WORKDIR}/gzdoom-${PV}"
 
