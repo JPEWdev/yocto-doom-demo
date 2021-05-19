@@ -33,7 +33,7 @@
 [submodule "hardknott/poky"]
 	path = hardknott/poky
 	url = git://git.yoctoproject.org/poky
-	branch = hardknott
+	branch = master-next
 [submodule "hardknott/meta-pine64"]
 	path = hardknott/meta-pine64
 	url = https://github.com/alistair23/meta-pine64.git
