@@ -1,0 +1,32 @@
+- project:
+    check:
+      jobs:
+        - raspberrypi4-development-gatesgarth
+        - raspberrypi3-development-gatesgarth
+        - tinkerboard-development-gatesgarth
+        - rockpi4-development-gatesgarth
+        - qemux86-64-development-gatesgarth
+
+        - raspberrypi4-development-hardknott
+        - raspberrypi3-development-hardknott
+        - tinkerboard-development-hardknott
+        - rockpi4-development-hardknott
+        - qemux86-64-development-hardknott
+        - rockpix-development-hardknott
+        - pineh64-development-hardknott
+
+    gate:
+      jobs:
+        - raspberrypi4-development-gatesgarth
+        - raspberrypi3-development-gatesgarth
+        - tinkerboard-development-gatesgarth
+        - rockpi4-development-gatesgarth
+        - qemux86-64-development-gatesgarth
+
+        - raspberrypi4-development-hardknott
+        - raspberrypi3-development-hardknott
+        - tinkerboard-development-hardknott
+        - rockpi4-development-hardknott
+        - qemux86-64-development-hardknott
+        - rockpix-development-hardknott
+        - pineh64-development-hardknott
