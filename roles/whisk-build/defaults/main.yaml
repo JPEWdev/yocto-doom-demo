@@ -1,0 +1,13 @@
+zuul_work_dir: "{{ zuul.project.src_dir }}"
+whisk_build_targets: all-targets
+whisk_dir: whisk
+whisk_init: init-build-env
+whisk_fetch: true
+whisk_site: ""
+whisk_mode: ""
+whisk_build_dir: ""
+whisk_sstate_dir: ""
+whisk_dl_dir: ""
+whisk_num_threads: ""
+whisk_nice: "10"
+whisk_hash_server: ""

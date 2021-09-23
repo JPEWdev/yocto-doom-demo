@@ -1,0 +1,11 @@
+- job:
+    name: whisk-base
+    abstract: true
+    timeout: 36000
+    run:
+      - playbooks/whisk-build.yaml
+    vars:
+      whisk_sstate_dir: /mnt/cache/yocto/sstate
+      whisk_dl_dir: /mnt/cache/yocto/downloads
+      whisk_num_threads: 10
+      whisk_hash_server: yocto-hashserv.yocto-build.svc.cluster.local:8686

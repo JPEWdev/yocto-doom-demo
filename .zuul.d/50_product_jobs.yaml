@@ -1,0 +1,168 @@
+
+- job:
+    name: pineh64-development-gatesgarth
+    parent: whisk-base
+    vars:
+      whisk_product: pineh64
+      whisk_version: gatesgarth
+      whisk_mode: development
+
+- job:
+    name: pineh64-development-hardknott
+    parent: whisk-base
+    vars:
+      whisk_product: pineh64
+      whisk_version: hardknott
+      whisk_mode: development
+
+- job:
+    name: pineh64-development-default
+    parent: whisk-base
+    vars:
+      whisk_product: pineh64
+      whisk_version: default
+      whisk_mode: development
+
+- job:
+    name: qemux86-64-development-gatesgarth
+    parent: whisk-base
+    vars:
+      whisk_product: qemux86-64
+      whisk_version: gatesgarth
+      whisk_mode: development
+
+- job:
+    name: qemux86-64-development-hardknott
+    parent: whisk-base
+    vars:
+      whisk_product: qemux86-64
+      whisk_version: hardknott
+      whisk_mode: development
+
+- job:
+    name: qemux86-64-development-default
+    parent: whisk-base
+    vars:
+      whisk_product: qemux86-64
+      whisk_version: default
+      whisk_mode: development
+
+- job:
+    name: raspberrypi3-development-gatesgarth
+    parent: whisk-base
+    vars:
+      whisk_product: raspberrypi3
+      whisk_version: gatesgarth
+      whisk_mode: development
+
+- job:
+    name: raspberrypi3-development-hardknott
+    parent: whisk-base
+    vars:
+      whisk_product: raspberrypi3
+      whisk_version: hardknott
+      whisk_mode: development
+
+- job:
+    name: raspberrypi3-development-default
+    parent: whisk-base
+    vars:
+      whisk_product: raspberrypi3
+      whisk_version: default
+      whisk_mode: development
+
+- job:
+    name: raspberrypi4-development-gatesgarth
+    parent: whisk-base
+    vars:
+      whisk_product: raspberrypi4
+      whisk_version: gatesgarth
+      whisk_mode: development
+
+- job:
+    name: raspberrypi4-development-hardknott
+    parent: whisk-base
+    vars:
+      whisk_product: raspberrypi4
+      whisk_version: hardknott
+      whisk_mode: development
+
+- job:
+    name: raspberrypi4-development-default
+    parent: whisk-base
+    vars:
+      whisk_product: raspberrypi4
+      whisk_version: default
+      whisk_mode: development
+
+- job:
+    name: rockpi4-development-gatesgarth
+    parent: whisk-base
+    vars:
+      whisk_product: rockpi4
+      whisk_version: gatesgarth
+      whisk_mode: development
+
+- job:
+    name: rockpi4-development-hardknott
+    parent: whisk-base
+    vars:
+      whisk_product: rockpi4
+      whisk_version: hardknott
+      whisk_mode: development
+
+- job:
+    name: rockpi4-development-default
+    parent: whisk-base
+    vars:
+      whisk_product: rockpi4
+      whisk_version: default
+      whisk_mode: development
+
+- job:
+    name: rockpix-development-gatesgarth
+    parent: whisk-base
+    vars:
+      whisk_product: rockpix
+      whisk_version: gatesgarth
+      whisk_mode: development
+
+- job:
+    name: rockpix-development-hardknott
+    parent: whisk-base
+    vars:
+      whisk_product: rockpix
+      whisk_version: hardknott
+      whisk_mode: development
+
+- job:
+    name: rockpix-development-default
+    parent: whisk-base
+    vars:
+      whisk_product: rockpix
+      whisk_version: default
+      whisk_mode: development
+
+- job:
+    name: tinkerboard-development-gatesgarth
+    parent: whisk-base
+    vars:
+      whisk_product: tinkerboard
+      whisk_version: gatesgarth
+      whisk_mode: development
+
+- job:
+    name: tinkerboard-development-hardknott
+    parent: whisk-base
+    vars:
+      whisk_product: tinkerboard
+      whisk_version: hardknott
+      whisk_mode: development
+
+- job:
+    name: tinkerboard-development-default
+    parent: whisk-base
+    vars:
+      whisk_product: tinkerboard
+      whisk_version: default
+      whisk_mode: development

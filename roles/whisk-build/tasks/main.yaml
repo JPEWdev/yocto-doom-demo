@@ -1,0 +1,64 @@
+- name: Fetch whisk
+  shell: |
+    set -ex
+    git submodule update --init --recursive {{ whisk_dir }}
+  args:
+    chdir: "{{ zuul_work_dir }}"
+
+- name: Initialize Whisk
+  shell: |
+    set -e
+    . {{ whisk_init }} \
+        --product={{ whisk_product }} \
+        {{ whisk_site | ternary("--site=" + whisk_site, "") }} \
+        {{ whisk_mode | ternary("--mode=" + whisk_mode, "") }} \
+        {{ whisk_build_dir | ternary("--build-dir=" + whisk_build_dir, "") }} \
+        {{ whisk_fetch | ternary("--fetch", "") }}
+
+  args:
+    chdir: "{{ zuul_work_dir }}"
+    executable: /bin/bash
+
+- name: Prepare local.conf
+  shell: |
+    set -e
+    . {{ whisk_init }}
+
+    if [ -n "{{ whisk_sstate_dir }}" ]; then
+        echo 'SSTATE_DIR = "{{ whisk_sstate_dir }}"' >> conf/local.conf
+    fi
+
+    if [ -n "{{ whisk_dl_dir }}" ]; then
+        echo 'DL_DIR = "{{ whisk_dl_dir }}"' >> conf/local.conf
+    fi
+
+    if [ -n "{{ whisk_num_threads }}" ]; then
+        echo 'PARALLEL_MAKE = "-j {{ whisk_num_threads }}"' >> conf/local.conf
+        echo 'BB_NUMBER_THREADS = "{{ whisk_num_threads }}"' >> conf/local.conf
+    fi
+
+    if [ -n "{{ whisk_nice }}" ]; then
+        echo 'BB_TASK_NICE_LEVEL = "{{ whisk_nice }}"' >> conf/local.conf
+    fi
+
+    if [ -n "{{ whisk_hash_server }}" ]; then
+      echo 'BB_HASHSERVE = "{{ whisk_hash_server }}"' >> conf/local.conf
+      echo 'BB_SIGNATURE_HANDLER = "OEEquivHash"' >> conf/local.conf
+    fi
+
+    cat conf/local.conf
+  args:
+    chdir: "{{ zuul_work_dir }}"
+    executable: /bin/bash
+
+- name: Build
+  shell: |
+    set -e
+    if [ -n "{{ whisk_nice }}" ]; then
+        renice -n {{ whisk_nice }} -p $$
+    fi
+    . {{ whisk_init }}
+    bitbake {{ whisk_build_targets }}
+  args:
+    chdir: "{{ zuul_work_dir }}"
+    executable: /bin/bash

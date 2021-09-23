@@ -20,19 +20,36 @@ versions:
         paths:
           - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta"
           - "%{WHISK_PROJECT_ROOT}/gatesgarth/poky/meta-poky"
+        fetch:
+          commands:
+            - git submodule update --init gatesgarth/poky
+
       - name: raspberrypi
         paths:
           - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-raspberrypi"
+        fetch:
+          commands:
+            - git submodule update --init gatesgarth/meta-raspberrypi
+
       - name: arm
         paths:
           - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm"
           - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-arm/meta-arm-toolchain"
+        fetch:
+          commands:
+            - git submodule update --init gatesgarth/meta-arm
+
       - name: rockchip
         paths:
           - "%{WHISK_PROJECT_ROOT}/gatesgarth/meta-rockchip"
+        fetch:
+          commands:
+            - git submodule update --init gatesgarth/meta-rockchip
+
       - name: rockpix
         paths:
           - "${WHISK_PROJECT_ROOT}/meta-rockpix"
+
       - name: doom
         paths:
           - "%{WHISK_PROJECT_ROOT}/meta-doom"
@@ -44,22 +61,43 @@ versions:
         paths:
           - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta"
           - "%{WHISK_PROJECT_ROOT}/hardknott/poky/meta-poky"
+        fetch:
+          commands:
+            - git submodule update --init hardknott/poky
+
       - name: raspberrypi
         paths:
           - "%{WHISK_PROJECT_ROOT}/hardknott/meta-raspberrypi"
+        fetch:
+          commands:
+            - git submodule update --init hardknott/meta-rapsberrypi
+
       - name: arm
         paths:
           - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm"
           - "%{WHISK_PROJECT_ROOT}/hardknott/meta-arm/meta-arm-toolchain"
+        fetch:
+          commands:
+            - git submodule update --init hardknott/meta-arm
+
       - name: rockchip
         paths:
           - "%{WHISK_PROJECT_ROOT}/hardknott/meta-rockchip"
-      - name: rockpix
-        paths:
-          - "${WHISK_PROJECT_ROOT}/meta-rockpix"
+        fetch:
+          commands:
+            - git submodule update --init hardknott/meta-rockchip
+
       - name: pine64
         paths:
           - "%{WHISK_PROJECT_ROOT}/hardknott/meta-pine64"
+        fetch:
+          commands:
+            - git submodule update --init hardknott/meta-pine64
+
+      - name: rockpix
+        paths:
+          - "${WHISK_PROJECT_ROOT}/meta-rockpix"
+
       - name: doom
         paths:
           - "%{WHISK_PROJECT_ROOT}/meta-doom"
