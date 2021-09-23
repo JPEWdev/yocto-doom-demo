@@ -1,19 +1,19 @@
 - project:
     check:
-      jobs:
-        - raspberrypi4-development-gatesgarth
-        - raspberrypi3-development-gatesgarth
-        - tinkerboard-development-gatesgarth
-        - rockpi4-development-gatesgarth
-        - qemux86-64-development-gatesgarth
-
-        - raspberrypi4-development-hardknott
-        - raspberrypi3-development-hardknott
-        - tinkerboard-development-hardknott
-        - rockpi4-development-hardknott
-        - qemux86-64-development-hardknott
-        - rockpix-development-hardknott
-        - pineh64-development-hardknott
+      jobs: []
+        #        - raspberrypi4-development-gatesgarth
+        #        - raspberrypi3-development-gatesgarth
+        #        - tinkerboard-development-gatesgarth
+        #        - rockpi4-development-gatesgarth
+        #        - qemux86-64-development-gatesgarth
+        #
+        #        - raspberrypi4-development-hardknott
+        #        - raspberrypi3-development-hardknott
+        #        - tinkerboard-development-hardknott
+        #        - rockpi4-development-hardknott
+        #        - qemux86-64-development-hardknott
+        #        - rockpix-development-hardknott
+        #        - pineh64-development-hardknott
 
     gate:
       jobs:
@@ -30,3 +30,18 @@
         - qemux86-64-development-hardknott
         - rockpix-development-hardknott
         - pineh64-development-hardknott
+
+        - raspberrypi4-development-gatesgarth-test
+        - raspberrypi3-development-gatesgarth-test
+        - tinkerboard-development-gatesgarth-test
+        - rockpi4-development-gatesgarth-test
+        - qemux86-64-development-gatesgarth-test
+
+        - raspberrypi4-development-hardknott-test
+        - raspberrypi3-development-hardknott-test
+        - tinkerboard-development-hardknott-test
+        - rockpi4-development-hardknott-test
+        - qemux86-64-development-hardknott-test
+        - rockpix-development-hardknott-test
+        - pineh64-development-hardknott-test
+

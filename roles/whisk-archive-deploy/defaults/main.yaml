@@ -1,0 +1,3 @@
+zuul_work_dir: "{{ zuul.project.src_dir }}"
+whisk_init: init-build-env
+whisk_deploy_filename: "deploy.tar.zstd"

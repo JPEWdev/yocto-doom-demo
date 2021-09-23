@@ -4,8 +4,30 @@
     timeout: 36000
     run:
       - playbooks/whisk-build.yaml
+      - playbooks/whisk-archive-deploy.yaml
     vars:
       whisk_sstate_dir: /mnt/cache/yocto/sstate
       whisk_dl_dir: /mnt/cache/yocto/downloads
       whisk_num_threads: 10
       whisk_hash_server: yocto-hashserv.yocto-build.svc.cluster.local:8686
+      whisk_deploy_url: http://yocto-cache.yocto-build.svc.cluster.local/deploy/
+      whisk_deploy_dir: /mnt/cache/yocto/deploy
+    nodeset:
+      nodes:
+        - name: whisk-build-node
+          label: pod-ubuntu-focal-10c20g
+
+
+- job:
+    name: labgrid-base
+    abstract: true
+    timeout: 3600
+    secrets:
+      - name: ssh_key
+        secret: labgrid-ssh-key
+    pre-run:
+      - playbooks/labgrid-pre.yaml
+    run:
+      - playbooks/labgrid-test.yaml
+    post-run:
+      - playbooks/labgrid-post.yaml

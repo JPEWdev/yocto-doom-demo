@@ -1,0 +1,25 @@
+- name: Create deploy directory
+  ansible.builtin.file:
+    path: "{{ whisk_deploy_dir }}/{{ zuul.build }}"
+    state: directory
+    mode: "0755"
+
+- name: Deploy artifacts
+  shell: |
+    set -e
+    . {{ whisk_init }}
+
+    cd "deploy/$WHISK_MODE/$WHISK_ACTUAL_VERSION"
+
+    find . -path '*/images/*' | tar -I pzstd --files-from - -cvf "{{ whisk_deploy_dir }}/{{ zuul.build }}/{{ whisk_deploy_filename }}"
+  args:
+    chdir: "{{ zuul_work_dir }}"
+    executable: /bin/bash
+
+- name: Report artifacts
+  zuul_return:
+    data:
+      zuul:
+        artifacts:
+          - name: deploy
+            url: "{{ whisk_deploy_url }}/{{ zuul.build }}/{{ whisk_deploy_filename }}"

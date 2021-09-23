@@ -1,0 +1,33 @@
+- name: Set facts
+  set_fact:
+    test_dir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}/{{ item.job }}"
+
+- name: Create deploy directory
+  ansible.builtin.file:
+    path: "{{ test_dir }}/deploy"
+    mode: "0755"
+    state: directory
+
+- name: Download artifact
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ test_dir }}/deploy/deploy.tar.zstd"
+  retries: 3
+  delay: 10
+  register: result
+  until: result is succeeded
+
+- name: Extract artifacts
+  ansible.builtin.command:
+    cmd: "tar -I pzstd -xvf deploy.tar.zstd"
+  args:
+    chdir: "{{ test_dir }}/deploy"
+
+- block:
+    - ansible.builtin.include_role:
+        name: labgrid-pytest
+      vars:
+        labgrid_pytest_log_dir: "test-output/{{ item.job }}"
+  environment:
+    LG_DEPLOY_DIR: "{{ test_dir }}/deploy"
+

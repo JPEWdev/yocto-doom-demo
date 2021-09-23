@@ -1,0 +1,5 @@
+zuul_work_dir: "{{ zuul.project.src_dir }}"
+labgrid_pytest_venv_dir: ".venv"
+labgrid_pytest_log_dir: "test-output"
+labgrid_pytest_log_file: "{{ labgrid_pytest_log_dir }}/pytest.log"
+labgrid_pytest_args: ""
