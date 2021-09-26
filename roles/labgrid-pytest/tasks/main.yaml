@@ -1,0 +1,76 @@
+- name: Install labgrid
+  shell: |
+    set -e
+    python3 -m venv {{ labgrid_pytest_venv_dir }}
+    . {{ labgrid_pytest_venv_dir }}/bin/activate
+    pip install wheel
+    pip install https://github.com/labgrid-project/pyserial/archive/v3.4.0.1.zip#egg=pyserial
+    pip install labgrid
+  args:
+    chdir: "{{ zuul_work_dir }}"
+
+- name: Set pytest environment
+  set_fact:
+    pytest_env:
+
+- name: Check Labgrid environment
+  ansible.builtin.command:
+    cmd: "cat {{ labgrid_pytest_env }}"
+  args:
+    chdir: "{{ zuul_work_dir }}"
+  register: env_contents
+
+- block:
+    - name: Show labgrid places
+      ansible.builtin.command:
+        cmd: "{{ labgrid_pytest_venv_dir }}/bin/labgrid-client -v places"
+      args:
+        chdir: "{{ zuul_work_dir }}"
+
+    - name: Show labgrid reservations
+      ansible.builtin.command:
+        cmd: "{{ labgrid_pytest_venv_dir }}/bin/labgrid-client -v reservations"
+      args:
+        chdir: "{{ zuul_work_dir }}"
+
+    - name: Reserve place
+      ansible.builtin.command:
+        cmd: "{{ labgrid_pytest_venv_dir }}/bin/labgrid-client reserve --wait --shell {{ labgrid_reservation }}"
+      args:
+        chdir: "{{ zuul_work_dir }}"
+      register: result
+
+    - name: Set labgrid facts
+      set_fact:
+        lg_place: "+{{ ( result.stdout | regex_search('LG_TOKEN=(\\w+)', '\\1') )[0] }}"
+        cacheable: true
+
+    - name: Set pytest environment
+      set_fact:
+        pytest_env:
+          LG_PLACE: "{{ lg_place }}"
+
+    - name: Acquire place
+      ansible.builtin.command:
+        cmd: "{{ labgrid_pytest_venv_dir }}/bin/labgrid-client -p {{ lg_place }} acquire"
+      args:
+        chdir: "{{ zuul_work_dir }}"
+
+  when: env_contents.stdout.find('$LG_PLACE') != -1
+
+- name: Run tests
+  ansible.builtin.command:
+    argv:
+      - "{{ labgrid_pytest_venv_dir }}/bin/pytest"
+      - "-v"
+      - "--lg-env={{ labgrid_pytest_env }}"
+      - "--lg-log={{ labgrid_pytest_log_dir }}"
+      - "--log-file={{ labgrid_pytest_log_file }}"
+      - "{{ labgrid_pytest_args }}"
+  args:
+    chdir: "{{ zuul_work_dir }}"
+  environment: "{{ pytest_env }}"
+
+- ansible.builtin.include_role:
+    name: labgrid-release
+

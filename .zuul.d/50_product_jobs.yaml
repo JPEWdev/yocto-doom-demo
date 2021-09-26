@@ -8,12 +8,32 @@
       whisk_mode: development
 
 - job:
+    name: pineh64-development-gatesgarth-test
+    parent: labgrid-base
+    dependencies:
+     - pineh64-development-gatesgarth
+    vars:
+      labgrid_reservation: "product=pineh64"
+      labgrid_pytest_env: "ci/pineh64/env.yaml"
+      labgrid_pytest_args: "ci/pineh64"
+
+- job:
     name: pineh64-development-hardknott
     parent: whisk-base
     vars:
       whisk_product: pineh64
       whisk_version: hardknott
       whisk_mode: development
+
+- job:
+    name: pineh64-development-hardknott-test
+    parent: labgrid-base
+    dependencies:
+     - pineh64-development-hardknott
+    vars:
+      labgrid_reservation: "product=pineh64"
+      labgrid_pytest_env: "ci/pineh64/env.yaml"
+      labgrid_pytest_args: "ci/pineh64"
 
 - job:
     name: pineh64-development-default
@@ -24,12 +44,32 @@
       whisk_mode: development
 
 - job:
+    name: pineh64-development-default-test
+    parent: labgrid-base
+    dependencies:
+     - pineh64-development-default
+    vars:
+      labgrid_reservation: "product=pineh64"
+      labgrid_pytest_env: "ci/pineh64/env.yaml"
+      labgrid_pytest_args: "ci/pineh64"
+
+- job:
     name: qemux86-64-development-gatesgarth
     parent: whisk-base
     vars:
       whisk_product: qemux86-64
       whisk_version: gatesgarth
       whisk_mode: development
+
+- job:
+    name: qemux86-64-development-gatesgarth-test
+    parent: labgrid-base
+    dependencies:
+     - qemux86-64-development-gatesgarth
+    vars:
+      labgrid_reservation: "product=qemux86-64"
+      labgrid_pytest_env: "ci/qemux86-64/env.yaml"
+      labgrid_pytest_args: "ci/qemux86-64"
 
 - job:
     name: qemux86-64-development-hardknott
@@ -40,12 +80,32 @@
       whisk_mode: development
 
 - job:
+    name: qemux86-64-development-hardknott-test
+    parent: labgrid-base
+    dependencies:
+     - qemux86-64-development-hardknott
+    vars:
+      labgrid_reservation: "product=qemux86-64"
+      labgrid_pytest_env: "ci/qemux86-64/env.yaml"
+      labgrid_pytest_args: "ci/qemux86-64"
+
+- job:
     name: qemux86-64-development-default
     parent: whisk-base
     vars:
       whisk_product: qemux86-64
       whisk_version: default
       whisk_mode: development
+
+- job:
+    name: qemux86-64-development-default-test
+    parent: labgrid-base
+    dependencies:
+     - qemux86-64-development-default
+    vars:
+      labgrid_reservation: "product=qemux86-64"
+      labgrid_pytest_env: "ci/qemux86-64/env.yaml"
+      labgrid_pytest_args: "ci/qemux86-64"
 
 - job:
     name: raspberrypi3-development-gatesgarth
@@ -56,12 +116,32 @@
       whisk_mode: development
 
 - job:
+    name: raspberrypi3-development-gatesgarth-test
+    parent: labgrid-base
+    dependencies:
+     - raspberrypi3-development-gatesgarth
+    vars:
+      labgrid_reservation: "product=raspberrypi3"
+      labgrid_pytest_env: "ci/raspberrypi3/env.yaml"
+      labgrid_pytest_args: "ci/raspberrypi3"
+
+- job:
     name: raspberrypi3-development-hardknott
     parent: whisk-base
     vars:
       whisk_product: raspberrypi3
       whisk_version: hardknott
       whisk_mode: development
+
+- job:
+    name: raspberrypi3-development-hardknott-test
+    parent: labgrid-base
+    dependencies:
+     - raspberrypi3-development-hardknott
+    vars:
+      labgrid_reservation: "product=raspberrypi3"
+      labgrid_pytest_env: "ci/raspberrypi3/env.yaml"
+      labgrid_pytest_args: "ci/raspberrypi3"
 
 - job:
     name: raspberrypi3-development-default
@@ -72,12 +152,32 @@
       whisk_mode: development
 
 - job:
+    name: raspberrypi3-development-default-test
+    parent: labgrid-base
+    dependencies:
+     - raspberrypi3-development-default
+    vars:
+      labgrid_reservation: "product=raspberrypi3"
+      labgrid_pytest_env: "ci/raspberrypi3/env.yaml"
+      labgrid_pytest_args: "ci/raspberrypi3"
+
+- job:
     name: raspberrypi4-development-gatesgarth
     parent: whisk-base
     vars:
       whisk_product: raspberrypi4
       whisk_version: gatesgarth
       whisk_mode: development
+
+- job:
+    name: raspberrypi4-development-gatesgarth-test
+    parent: labgrid-base
+    dependencies:
+     - raspberrypi4-development-gatesgarth
+    vars:
+      labgrid_reservation: "product=raspberrypi4"
+      labgrid_pytest_env: "ci/raspberrypi4/env.yaml"
+      labgrid_pytest_args: "ci/raspberrypi4"
 
 - job:
     name: raspberrypi4-development-hardknott
@@ -88,12 +188,32 @@
       whisk_mode: development
 
 - job:
+    name: raspberrypi4-development-hardknott-test
+    parent: labgrid-base
+    dependencies:
+     - raspberrypi4-development-hardknott
+    vars:
+      labgrid_reservation: "product=raspberrypi4"
+      labgrid_pytest_env: "ci/raspberrypi4/env.yaml"
+      labgrid_pytest_args: "ci/raspberrypi4"
+
+- job:
     name: raspberrypi4-development-default
     parent: whisk-base
     vars:
       whisk_product: raspberrypi4
       whisk_version: default
       whisk_mode: development
+
+- job:
+    name: raspberrypi4-development-default-test
+    parent: labgrid-base
+    dependencies:
+     - raspberrypi4-development-default
+    vars:
+      labgrid_reservation: "product=raspberrypi4"
+      labgrid_pytest_env: "ci/raspberrypi4/env.yaml"
+      labgrid_pytest_args: "ci/raspberrypi4"
 
 - job:
     name: rockpi4-development-gatesgarth
@@ -104,12 +224,32 @@
       whisk_mode: development
 
 - job:
+    name: rockpi4-development-gatesgarth-test
+    parent: labgrid-base
+    dependencies:
+     - rockpi4-development-gatesgarth
+    vars:
+      labgrid_reservation: "product=rockpi4"
+      labgrid_pytest_env: "ci/rockpi4/env.yaml"
+      labgrid_pytest_args: "ci/rockpi4"
+
+- job:
     name: rockpi4-development-hardknott
     parent: whisk-base
     vars:
       whisk_product: rockpi4
       whisk_version: hardknott
       whisk_mode: development
+
+- job:
+    name: rockpi4-development-hardknott-test
+    parent: labgrid-base
+    dependencies:
+     - rockpi4-development-hardknott
+    vars:
+      labgrid_reservation: "product=rockpi4"
+      labgrid_pytest_env: "ci/rockpi4/env.yaml"
+      labgrid_pytest_args: "ci/rockpi4"
 
 - job:
     name: rockpi4-development-default
@@ -120,12 +260,32 @@
       whisk_mode: development
 
 - job:
+    name: rockpi4-development-default-test
+    parent: labgrid-base
+    dependencies:
+     - rockpi4-development-default
+    vars:
+      labgrid_reservation: "product=rockpi4"
+      labgrid_pytest_env: "ci/rockpi4/env.yaml"
+      labgrid_pytest_args: "ci/rockpi4"
+
+- job:
     name: rockpix-development-gatesgarth
     parent: whisk-base
     vars:
       whisk_product: rockpix
       whisk_version: gatesgarth
       whisk_mode: development
+
+- job:
+    name: rockpix-development-gatesgarth-test
+    parent: labgrid-base
+    dependencies:
+     - rockpix-development-gatesgarth
+    vars:
+      labgrid_reservation: "product=rockpix"
+      labgrid_pytest_env: "ci/rockpix/env.yaml"
+      labgrid_pytest_args: "ci/rockpix"
 
 - job:
     name: rockpix-development-hardknott
@@ -136,12 +296,32 @@
       whisk_mode: development
 
 - job:
+    name: rockpix-development-hardknott-test
+    parent: labgrid-base
+    dependencies:
+     - rockpix-development-hardknott
+    vars:
+      labgrid_reservation: "product=rockpix"
+      labgrid_pytest_env: "ci/rockpix/env.yaml"
+      labgrid_pytest_args: "ci/rockpix"
+
+- job:
     name: rockpix-development-default
     parent: whisk-base
     vars:
       whisk_product: rockpix
       whisk_version: default
       whisk_mode: development
+
+- job:
+    name: rockpix-development-default-test
+    parent: labgrid-base
+    dependencies:
+     - rockpix-development-default
+    vars:
+      labgrid_reservation: "product=rockpix"
+      labgrid_pytest_env: "ci/rockpix/env.yaml"
+      labgrid_pytest_args: "ci/rockpix"
 
 - job:
     name: tinkerboard-development-gatesgarth
@@ -152,6 +332,16 @@
       whisk_mode: development
 
 - job:
+    name: tinkerboard-development-gatesgarth-test
+    parent: labgrid-base
+    dependencies:
+     - tinkerboard-development-gatesgarth
+    vars:
+      labgrid_reservation: "product=tinkerboard"
+      labgrid_pytest_env: "ci/tinkerboard/env.yaml"
+      labgrid_pytest_args: "ci/tinkerboard"
+
+- job:
     name: tinkerboard-development-hardknott
     parent: whisk-base
     vars:
@@ -160,9 +350,29 @@
       whisk_mode: development
 
 - job:
+    name: tinkerboard-development-hardknott-test
+    parent: labgrid-base
+    dependencies:
+     - tinkerboard-development-hardknott
+    vars:
+      labgrid_reservation: "product=tinkerboard"
+      labgrid_pytest_env: "ci/tinkerboard/env.yaml"
+      labgrid_pytest_args: "ci/tinkerboard"
+
+- job:
     name: tinkerboard-development-default
     parent: whisk-base
     vars:
       whisk_product: tinkerboard
       whisk_version: default
       whisk_mode: development
+
+- job:
+    name: tinkerboard-development-default-test
+    parent: labgrid-base
+    dependencies:
+     - tinkerboard-development-default
+    vars:
+      labgrid_reservation: "product=tinkerboard"
+      labgrid_pytest_env: "ci/tinkerboard/env.yaml"
+      labgrid_pytest_args: "ci/tinkerboard"

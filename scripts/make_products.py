@@ -34,6 +34,16 @@ def main():
                                   whisk_product: {product}
                                   whisk_version: {version}
                                   whisk_mode: {mode}
+
+                            - job:
+                                name: {product}-{mode}-{version}-test
+                                parent: labgrid-base
+                                dependencies:
+                                 - {product}-{mode}-{version}
+                                vars:
+                                  labgrid_reservation: "product={product}"
+                                  labgrid_pytest_env: "ci/{product}/env.yaml"
+                                  labgrid_pytest_args: "ci/{product}"
                             """
                         )
                     )

@@ -1,0 +1,33 @@
+- hosts: all
+  tasks:
+    - name: Ensure .ssh directory exists
+      ansible.builtin.file:
+        path: "{{ ansible_user_dir }}/.ssh"
+        state: directory
+        mode: "0700"
+
+    - name: Update ssh config for labgrid access
+      ansible.builtin.blockinfile:
+        path: "{{ ansible_user_dir }}/.ssh/config"
+        insertbefore: BOF
+        mode: "0600"
+        create: yes
+        block: |
+          Host baltar-bsg-labgrid
+              User labgrid
+              HostName baltar-bsg-labgrid.http-tunnel
+
+          Host !baltar-bsg-labgrid *-bsg-labgrid
+              ProxyCommand ssh baltar-bsg-labgrid.http-tunnel -W %h.local:%p
+              User labgrid
+
+    - name: Test artifact with Labgrid
+      include_tasks: test-artifact.yaml
+      when: item.name == "deploy"
+      loop: "{{ zuul.artifacts }}"
+
+  environment:
+    LG_PROXY: baltar-bsg-labgrid
+    LG_HOSTNAME: "{{ ansible_hostname }}"
+    LG_USERNAME: "{{ zuul.build }}"
+    VIRTUAL_ENV_DISABLE_PROMPT: "1"

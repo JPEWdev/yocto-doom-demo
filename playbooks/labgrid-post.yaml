@@ -1,0 +1,9 @@
+- hosts: all
+  roles:
+    - labgrid-release
+    - remove-sshkey
+
+  environment:
+    LG_PROXY: baltar-bsg-labgrid
+    LG_HOSTNAME: "{{ ansible_hostname }}"
+    LG_USERNAME: "{{ zuul.build }}"

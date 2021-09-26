@@ -1,0 +1,11 @@
+- name: Release place
+  ansible.builtin.command:
+    cmd: "{{ labgrid_pytest_venv_dir }}/bin/labgrid-client -p {{ lg_place }} release"
+  args:
+    chdir: "{{ zuul_work_dir }}"
+  when: lg_place is defined
+
+- name: Unset place
+  set_fact:
+    lg_place:
+    cacheable: true
